@@ -1,11 +1,11 @@
 # GameofLife
 
-Notre objectif est de programmer le "jeu de la vie" de John Horton Conway,  un automate cellulaire dont les règles sont les suivantes :
+The aim of this project is to program John Conway's "Game of Life", a cellular automaton which has the following rules :
 
-Le monde est constitué d'une grille dans laquelle naissent (cases noires) et meurent (cases blanches) des cellules.
-L'utilisateur choisit initialement la position des cellules au temps 0.
-La grille évolue de la manière suivante :
--une cellule possédant trois voisines vivantes naît
--une cellule possédant deux ou trois voisines reste vivante, sinon elle meurt
+The world is a grid in which are born (black cases) and die (white cases) cells.
+At the time=0, the user/gamer choose the initial born cells.
+At the time t+1 the evolution of the cells depends on the cells positions at time t :
+- an alive cell which has 2 or 3 alive neightboors stays alive, if not it dies
+- a dead cell which has 3 neightboors alive cells is born, if not it stays dead.
 
-Ces règles simples conduisent à une évolution très complexe donnant naissance à tout un bestiaire.
+These simple rules lead to a very complex evolution, which gives rise to a well-furnished bestiary.
