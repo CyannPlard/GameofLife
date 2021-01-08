@@ -12,7 +12,7 @@ import time
 
 fn = tk.Tk()
 fn.title("John Conway's Game of Life")
-expl=tk.Label(fn, text="Click on the white cases to make them live, and observe their evolution!")
+expl=tk.Label(fn, text="Click on the white cells to make them live, and observe their evolution!")
 expl.grid(row=0,column=0,columnspan=5)
 
 # __________creation of the game grid__________
@@ -42,25 +42,25 @@ def birth(event):
     
     x, y = event.x, event.y #click coordinates
     
-    #all clicks in a same case have x2,y2 coordinates
+    #all clicks in a same cell have x2,y2 coordinates
     x2=(x//p)*p
     y2=(y//p)*p
 
-    if (x2,y2) in d.keys(): #if click another time in the case
+    if (x2,y2) in d.keys(): #if click another time in the cell
         d[(x2,y2)]+=1
-    else: #if click for the first time in a case
+    else: #if click for the first time in a cell
         d[(x2,y2)]=1
     if d[(x2,y2)]%2==0: #if the number of click is even
-        grid.create_rectangle(x2, y2, x2+p, y2+p, fill="white")#la case redevient blanche
+        grid.create_rectangle(x2, y2, x2+p, y2+p, fill="white")#the cell become white
         World[y//p,x//p]=0
     else: #if the number of click is odd
-        grid.create_rectangle(x2, y2, x2+p, y2+p, fill="black")#la case devient noire
+        grid.create_rectangle(x2, y2, x2+p, y2+p, fill="black")#the cell become black
         World[y//p,x//p]=1 
 
 grid.bind('<Button-1>', birth) 
 
 
-#__________le jeu démarre__________
+#__________the game start__________
 
 
 # Function to use if you want a world like a petri box
@@ -128,12 +128,12 @@ def game():
                         World2[j,i]=1 #the cell stay alive
                     else:
                         World2[j,i]=0 #the cell die
-                        grid.create_rectangle(i*p, j*p, i*p+p, j*p+p, fill="white")#the case become white
+                        grid.create_rectangle(i*p, j*p, i*p+p, j*p+p, fill="white")#the cell become white
                             
                 else: #if a cell is dead
                     if nei==3:
                         World2[j,i]=1 #the cell become alive
-                        grid.create_rectangle(i*p, j*p, i*p+p, j*p+p, fill="black")#the case become black
+                        grid.create_rectangle(i*p, j*p, i*p+p, j*p+p, fill="black")#the cell become black
                        
         if  np.array_equiv(World, World2): #if nothing happens between the two worlds
             onoff=0 #stop the iteration
@@ -147,7 +147,7 @@ def game():
         iteration.configure(text='Temps = {}'.format(iter))
         #iteration speed
         time.sleep(speed)
-        #to make the cases visible
+        #to make the cells visible on the grid
         fn.update()
 
 #__________game pause/reset__________
