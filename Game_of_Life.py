@@ -1,7 +1,7 @@
 """
 Created on Sun Nov 02 17:40:22 2020
 
-@author: Cyann
+@author: Cyann Plard with the collaboration of Valentin Poncet
 """
 import tkinter as tk
 import numpy as np
